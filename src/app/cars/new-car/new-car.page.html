@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onCloseNew()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New car ad</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="title"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Car name</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Location</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="location"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea row="10" formControlName="description"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!form.get('description').valid && form.get('description').touched">
+          <ion-col size-sm="6" offset-sm="3">
+            <p>Description must not be longer than 600 characters.</p>
+            </ion-col>
+          </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Availability date</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY" placeholder="Select Date" formControlName="startdate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">End date</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY" placeholder="Select Date" formControlName="enddate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Price</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-button type="submit" color="primary" expand="block" [disabled]="!form.valid">
+              Submit
+            </ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

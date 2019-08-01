@@ -1,0 +1,46 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Lend a Car
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/auth">
+            <ion-icon name="log-in" slot="start"></ion-icon>
+            <ion-label>Sign in</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+            <ion-item lines="none" routerLink="/cars">
+              <ion-icon name="home" slot="start"></ion-icon>
+              <ion-label>Home</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        <ion-menu-toggle>
+            <ion-item lines="none" routerLink="/cars/new">
+              <ion-icon name="create" slot="start"></ion-icon>
+              <ion-label>New car</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+              <ion-item lines="none" routerLink="/cars/user-cars">
+                <ion-icon name="copy" slot="start"></ion-icon>
+                <ion-label>My cars</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="log-out" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>
